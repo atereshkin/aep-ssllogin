@@ -1,0 +1,9 @@
+A small app that allows having login view on a different domain where ssl is available. This is needed to work around GAEs limitation  with ssl only working on ".appspot.com" domains.
+
+Installation steps:
+1. Put aep-ssllogin into your app directory
+2. Add "ssllogin" to INSTALLED_APPS
+3. Add 'SSL_DOMAIN = "<your app id>.appspot.com"' to settings.py
+4. Set LOGIN_URL to '/securelogin/' in settings.py
+5. [temporary hack] comment out the following line in common/appenginepatch/ragendja/auth/urls.py:
+   url(LOGIN, 'django.contrib.auth.views.login'),
